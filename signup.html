@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Student Register</title>
+</head>
+<link rel="stylesheet" href="signin.css">
+<body>
+	<div class="registrationbox">
+		<h1>Student Register</h1>
+		<form action="signup.php" method="post">
+			<p>Username</p>
+			<input type="text" name="username" placeholder="Enter Username" required="">
+			<p>Password</p>
+			<input type="Password" name="password" placeholder="Enter Password" required="">
+			<p>First Name</p>
+			<input type="text" name="firstName" placeholder="First Name" required="">
+			<p>Last Name</p>
+			<input type="text" name="lastName" placeholder="Last Name" required="">
+			<p>Phone</p>
+			<input type="number" name="phone" placeholder="Phone" required="">
+			<p>Region</p>
+            <br>
+            <select name="region">
+                <option value="">Select</option>
+                <option value="Dhanmondi">Dhanmondi</option>
+                <option value="Gulshan">Gulshan</option>
+                <option value="Farmgate">Farmgate</option>
+                <option value="Lalmatia">Lalmatia</option>
+                <option value="Mohammadpur">Mohammadpur</option>
+                <option value="Moghbazar">Moghbazar</option>
+            </select>
+            <br>
+            <p>Address</p>
+			<input type="text" name="address" placeholder="Address" required="">
+			<p>Curriculum</p>
+            <br>
+            <select name="curriculum">
+                <option value="">Select</option>
+                <option value="English Version">English Version</option>
+                <option value="English Medium">English Medium</option>
+                <option value="Bangla Medium">Bangla Medium</option>
+            </select>
+            <br>
+			<p>Class</p>
+			<input type="text" name="class" placeholder="Class" required="">
+			<br>
+			<input type="submit" name="" value="Sign Up"><br>
+			
+			<p>Already have an account ?     </p>
+		<a href="signin.html">Sign In</a>
+
+		</form>
+	</div>
+
+
+</body>
+</html>
