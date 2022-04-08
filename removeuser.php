@@ -1,5 +1,6 @@
 <?php 
 	include 'dbh.php';
+	
 
 	if(isset($_COOKIE['admin_username'])) {
 
@@ -21,41 +22,65 @@
 
 
 
-	<div class="loginbox">
-	<!-- <div class="profileinfo"> -->
-	<form action="removeuser.php" method="post">
-		<p>Enter Username</p>
-		<input type="text" name="user" placeholder="Enter Username" required=""><br><br><br>
-		<p>Select User Type</p>
-		<br>
-            <select name="usertype">
-                <option value="student">Student</option>
-                <option value="teacher">Teacher</option>
-            </select>
-            <br><br><br>
-        <input type="submit" name="submit" value="Submit">
-	</form>
-    </div>
-	<!-- </div> -->
-</body>
-</html>
+<div class="full-height">
+
+<div class="container mt-5 full-height">
+	<div class="container-fluid admin-login">
+		<form class="col-md-6" action="removeuser.php" method="post" name="remove_user_form">
+			<div class="form-group">
+				<label for="adminuser">Enter Username</label>
+				<input type="text" class="form-control" id="adminuser" name="user" required required>
+			</div>
+			<div class="form-group">
+				<label for="inputState">Select User Type</label>
+				<select id="inputState" class="form-control" name="usertype" required>
+					<option value="student">Student</option>
+                	<option value="teacher">Teacher</option>
+				</select>
+			</div>
+			
+			<div class="form-group">
+				<button name="submit" type="submit" class="btn btn-danger admin-submit w-100 mt-2" value="Login">Remove</button>
+			</div>
+			<small class="form-text text-muted text-center" id="invalid_user">  </small>
+		</form>
+	</div>
+</div>
+
+
+</div>
 
 <?php 
-if (isset($_POST["submit"])){
+	if (isset($_POST["submit"])){
 
-include 'dbh.php';
+		$username_r = $_POST['user'];
+		$usertype = $_POST['usertype'];
 
-$username=$_POST['user'];
-$usertype=$_POST['usertype'];
+		$sql = "SELECT * FROM $usertype WHERE username='$username_r' ";
+		$result = mysqli_query($conn, $sql);
+		
+		if (mysqli_num_rows($result) > 0) {
+			$retrive = mysqli_fetch_assoc($result);
+			$sql_del = "DELETE FROM $usertype WHERE username = '$username_r'";
+
+			$result_del = $conn->query($sql_del);
+			echo '<script>document.getElementById("invalid_user").innerHTML = "User Successfully Removed"; </script>';
+		}
+		else {
+			echo '<script>document.getElementById("invalid_user").innerHTML = "User Not Found"; </script>';
+		}
 
 
-$sql = "DELETE FROM $usertype WHERE username = '$username'";
+		// $sql = "DELETE FROM $usertype WHERE username = '$username'";
 
-$result=$conn->query($sql);
+		// $result = $conn->query($sql);
+		// print_r($result);
 
-// header("Location:removeuser.php");
-
-echo '<script type="text/javascript"> alert("User removed");window.location="removeuser.php";</script>';
-
-}
+	// echo '<script type="text/javascript"> alert("User removed"); window.location="users.php";</script>';
+	}
  ?>
+
+
+<?php 
+	include './partials/footer.php';
+?>
