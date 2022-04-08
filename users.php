@@ -19,87 +19,103 @@
 	}
 ?>
 
+<div class="container full-height mt-5">
 
- 	<div class="tables">
- 		<div class="studenttable">
- 			<!--**************************Students************************* -->
- 	<table>
- 		<caption><p>Student</p></caption>
- 		<tr>
- 			<th>Uesername</th>
- 			<th>Password</th>
- 			<th>First Name</th>
- 			<th>Last Name</th>
- 			<th>Phone</th>
- 			<th>Region</th>
- 			<th>Address</th>
- 			<th>Cirruculum</th>
- 			<th>class</th>
- 		</tr>
- 	 	
-		<?php 
-			$sql="SELECT * FROM `student`";
-			$result=$conn->query($sql);
+<h1>Registered Students</h1>
+<div class="teacher-table table-responsive">
+		
 
-			while($row = mysqli_fetch_assoc($result))
-			{   //Creates a loop to loop through results
-			echo 
-			"<tr>
-				<td>" . $row['username'] . "</td>
-				<td>" . $row['password']. "</td>
-				<td>" .$row['firstname']. "</td>
-				<td>" .$row['lastname']."</td>
-				<td>" .$row['phone']. "</td>
-				<td>" .$row['region']. "</td>
-				<td>" .$row['address']. "</td>
-				<td>" .$row['curriculum']. "</td>
-				<td>" .$row['class']. "</td>
-			</tr>" ; 
-		}
+		<table class="table table-striped">
+			<thead class="thead-dark">
+				<tr>
+				<th scope="col">#</th>
+				<th scope="col">Username</th>
+				<th scope="col">First Name</th>
+				<th scope="col">Last Name</th>
+				<th scope="col">Phone</th>
+				<th scope="col">Region</th>
+				<th scope="col">Address</th>
+				<th scope="col">Curriculum</th>
+				<th scope="col">Class</th>
+				
+				</tr>
+			</thead>
+			<tbody>
+			<?php 
+				$sql="SELECT * FROM `student`";
+				$result=$conn->query($sql);
 
-	 	?>
-	</table>
- 		</div>
- 		
-	<br><br>
+				while($row = mysqli_fetch_assoc($result))
+				{   //Creates a loop to loop through results
+				echo 
+				"<tr>
+					<th>0</th>
+					<td>" . $row['username'] . "</td>
+					<td>" .$row['firstname']. "</td>
+					<td>" .$row['lastname']."</td>
+					<td>" .$row['phone']. "</td>
+					<td>" .$row['region']. "</td>
+					<td>" .$row['address']. "</td>
+					<td>" .$row['curriculum']. "</td>
+					<td>" .$row['class']. "</td>
+				</tr>" ; 
+				}
 
-		<div class="teachertable">
-			<!--************************Teachers************************ -->
- 	<table>
- 		<caption><p>Teacher</p></caption>
- 		<tr>
- 			<th>Uesername</th>
- 			<th>Password</th>
- 			<th>First Name</th>
- 			<th>Last Name</th>
- 			<th>Phone</th>
- 			<th>Institution</th>
- 			<th>Address</th>
- 		</tr>
+	 		?>
+			</tbody>
 
- 		<?php 
- 			$sql1="SELECT * FROM `teacher`";
-			$result1=$conn->query($sql1);
 
- 			while($row = mysqli_fetch_assoc($result1))
- 			{   //Creates a loop to loop through results
-			echo 
-			"<tr>
-				<td>" . $row['username'] . "</td>
-				<td>" . $row['password']. "</td>
-				<td>" .$row['firstname']. "</td>
-				<td>" .$row['lastname']."</td>
-				<td>" .$row['phone']. "</td>
-				<td>" .$row['institution']. "</td>
-				<td>" .$row['address']. "</td>
-			</tr>" ; 
-		}
- 		 ?>
- 	</table>
- 	</div>
+		</table>
+	</div>
+
+				<br><br>
+
+	<h1>Registered Teachers</h1>
+	<div class="teacher-table  table-responsive">
+		
+
+		<table class="table table-striped">
+			<thead class="thead-dark">
+				<tr>
+				<th scope="col">#</th>
+				<th scope="col">Username</th>
+				<th scope="col">First Name</th>
+				<th scope="col">Last Name</th>
+				<th scope="col">Phone</th>
+				<th scope="col">Institution</th>
+				<th scope="col">Address</th>
+				
+				</tr>
+			</thead>
+			<tbody>
+			<?php 
+				$sql="SELECT * FROM `teacher`";
+				$result=$conn->query($sql);
+
+				while($row = mysqli_fetch_assoc($result))
+				{   //Creates a loop to loop through results
+				echo 
+				"<tr>
+					<th>0</th>
+					<td>" . $row['username'] . "</td>
+					<td>" .$row['firstname']. "</td>
+					<td>" .$row['lastname']."</td>
+					<td>" .$row['phone']. "</td>
+					<td>" .$row['institution']. "</td>
+					<td>" .$row['address']. "</td>
+				</tr>" ; 
+				}
+
+	 		?>
+			</tbody>
+
+
+		</table>
+		</div>
 		</div>
 
- 
- 
- </body>
- </html>
+
+	
+<?php 
+	include './partials/footer.php';
+?>
