@@ -1,102 +1,125 @@
-html,body{
-	height: 100%;
+* {
+    font-family: 'Nunito', sans-serif;
 }
-body{
-	font-family: Arial,Helvetica,sans-serif;
-	font-size: 15px;
-	line-height: 1.5;
-	padding: 0;
-	margin: 0;
-	overflow: hidden;
-	min-height: 100%;
 
+.full-height {
+    min-height: 90vh;
 }
-/*Global*/
-.container{
+
+
+@-webkit-keyframes slide {
+    100% { left: 0; }
+}
+
+@keyframes slide {
+    100% { left: 0; }
+}
+
+.navbar-style {
+    background-color: #f8f9fa;
+    box-shadow: 2px 4px 13px 1px rgba(8, 8, 8, 0, 0.04);
+}
+
+#logo {
+    display: initial;
+    font-weight: 600;
+    font-size: 32px;
+    letter-spacing: 1px;
+    color: #2e6a72;
+    text-shadow: 2px 5px 3px rgba(0, 0, 0, 0, 06);
+    padding: 0;
+}
+
+.landing-carousel {
+    height: 60vh;
+    margin: 0;
+    padding: 0;
+}
+
+.landing-carousel-img {
+    height: 60vh;  
+    object-fit: cover;
+}
+.carousel {
+    height: 60vh;
+}
+.blockquote h1 {
+    font-size: 48px;
+}
+
+.sign-in-cards .card {
+    border-radius: 12px;
+    background: #ffffff;
+    box-shadow:  6px 6px 18px #ededed,
+                -6px -6px 18px #ffffff;
+}
+
+.sign-in-cards .card:hover {
+    border-radius: 12px;
+    background: #ffffff;
+    box-shadow:  13px 13px 26px #e9e9e9,
+                 -13px -13px 26px #ffffff;
+}
+
+.sign-in {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
+	align-items: center;
+}
+
+.sign-in-cards {
+	margin-top: 10vh;
+	display: flex;
 	width: 80%;
-	margin: auto;
-	overflow: hidden;
-}
-.button {
-    background-color: #ddd;
-    border: none;
-    color: black;
-    padding: 5px 10px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    margin: -10px 2px;
-    cursor: pointer;
-    border-radius: 16px;
 }
 
-.button:hover {
-    background-color: #f1f1f1;
+.admin-login {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 40vh;
+    background: rgb(252, 250, 250);
+    width: 60%;
+    margin-top: 150px;
+    border-radius: 15px;
+    background: #ffffff;
+    box-shadow:  8px 8px 18px #dedede,
+                -8px -8px 18px #ffffff;
 }
-/*Header*/
-header{
-	background: rgba(0,0,0,0.25);
-	/*background-color:dodgerblue ;*/
-	padding-top: 15px;
-	min-height: 70px;
+
+
+
+@media only screen and (max-width: 600px) {
+.carousel {
+	height: 30vh;
 }
-header a{
-	color: white;
-	text-decoration: none;
-	font-size: 16px;
-}
-header ul{
+.landing-carousel {
+	height: 30vh;
 	margin: 0;
 	padding: 0;
 }
-header li{
-	float: left;
-	display: inline;
-	padding:0 20px 0 20px; 
+.landing-carousel-img {
+	height: 30vh;  
+	object-fit: cover;
 }
-header #branding{
-	float: left;
+.blockquote h1 {
+	font-size: 32px;
 }
-header nav{
-	float: right;
-	margin-top: 35px;
-}
-header a:hover{
-	/*font-weight: bold;*/
-	color: #7d8481;
-	/*text-decoration: underline;*/
-}
-footer{
-  position:absolute;
-   bottom:0;
-   width:100%;
-   height:60px;
-  color:#ffffff;
-  background: rgba(0,0,0,0.25);
-
-  /*background-color:#e8491d;*/
-  text-align: center;
-  }
-footer li{
-	float: center;
-	display: inline;
-	padding:0px 20px 20px 20px; 
-}
-footer a{
-	color: #00E6FF;
-	text-decoration: none;
-}
-footer a:hover{
-	color: #00E6FF;
-	font-weight: bold;
-}
-#showcase{
-  min-height:400px;
-  text-align:center;
+.landing-desc {
+	font-size: 15px;
 }
 
-#showcase h1{
-  margin-top:100px;
-  font-size:55px;
-  margin-bottom:10px;
+#logo {
+	font-size: 24px;
+}
+.sign-in-cards {
+	margin-top: 20px;
+	width: 100%;
+	flex-direction: column;
+}
+.admin-login {
+	width: 90%;
+}
+
 }

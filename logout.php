@@ -1,8 +1,9 @@
 <?php 
-session_start();
-session_destroy();
+    session_destroy();
 
-header("Location:index.html");
+    $username = $_COOKIE['admin_username'];
 
+    setcookie("admin_username", $username, time() - 360,'/');
 
- ?>
+    header("Location:index.php");
+?>

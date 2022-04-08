@@ -1,18 +1,18 @@
 <?php 
 // session_start();
-include 'session.php';
+
+// include 'session.php';
 include 'dbh.php';
 
+$username=$_COOKIE['admin_username'];
 
-$username=$_SESSION['username'];
-
-$sql="SELECT * FROM admin WHERE username='$username'";
-$result=$conn->query($sql);
-$retrive=mysqli_fetch_assoc($result);
+$sql = "SELECT * FROM admin WHERE username='$username'";
+$result = $conn -> query($sql);
+$retrive = mysqli_fetch_assoc($result);
 //print_r($retrive);
 
-$firstname=$retrive['firstname'];
-$lastname=$retrive['lastname'];
+$firstname = $retrive['firstname'];
+$lastname = $retrive['lastname'];
 
  ?>
 <!DOCTYPE html>

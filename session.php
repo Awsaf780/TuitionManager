@@ -3,7 +3,9 @@
 session_start();
 include 'dbh.php';
 
-$username=$_SESSION['username'];
+
+// $username=$_SESSION['username'];
+// echo $username;
 
 // $sql="SELECT * FROM student WHERE username='$username'";
 // $result=$conn->query($sql);

@@ -5,7 +5,7 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 
-	<title>Knowledge Hub</title>
+	<title>ADMIN</title>
 
 
 
@@ -27,23 +27,6 @@
 
 
 <body>
-	<!-- <header>
-		<div class="container">
-			<div id="branding">
-				<a href="index.php"><h1>Knowledge Hub</h1></a>
-			</div>
-			<nav>
-				<ul>
-					<li><a href="about.php"><button class="button">About</button></a></li>
-					<li><a href="adminlogin.php"><button class="button">Admin</button></a></li>
-					<li><a href="FAQ.php"><button class="button">FAQ</button></a></li>
-					<li><a href="signinas.php"><button class="button">Sign In</button></a></li>
-					<li><a href="registeras.php"><button class="button">Sign Up</button></a></li>
-				</ul>
-			</nav>
-		</div>
-	</header> -->
-
 
 	<div class="container-fluid navbar-style py-3">
     <div class="row">
@@ -52,7 +35,7 @@
 
 
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
-          <a class="navbar-brand" id="logo" href="index.php">Knowledge Hub</a>
+          <a class="navbar-brand" id="logo" href="index.php">ADMIN</a>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
