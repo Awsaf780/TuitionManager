@@ -53,7 +53,7 @@
                 <a class="nav-link" href="removeuser.php">Remove Users</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="message.php">Messages</a>
+                <a class="nav-link" href="message-admin.php">Messages</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="logout.php">Logout</a>

@@ -21,26 +21,6 @@
 	
 ?>
 
-<?php
-	if (isset($_POST["submit"]) ){
-
-		$username=$_POST['username'];
-		$password=$_POST['password'];
-
-		$sql="SELECT * FROM admin WHERE username='$username' AND password ='$password'";
-		$result=$conn->query($sql);
-
-		if(!$row=$result->fetch_assoc()){
-			header("Location:adminlogin.php");
-		}else{
-			$_SESSION['admin_username'] = $_POST['username'];
-			setcookie("admin_username", $_SESSION['admin_username'], time()+ 60*60*24*5,'/'); // valid for 5 days
-			print_r($_SESSION);
-			
-			header("Location:adminhome.php");
-		}
-	}
-?>
 
 
 
@@ -64,6 +44,26 @@
 	</div>
 </div>
 
+<?php
+	if (isset($_POST["submit"]) ){
+
+		$username=$_POST['username'];
+		$password=$_POST['password'];
+
+		$sql="SELECT * FROM admin WHERE username='$username' AND password ='$password'";
+		$result=$conn->query($sql);
+
+		if(!$row=$result->fetch_assoc()){
+			echo '<script>document.getElementById("invalid_admin").innerHTML = "Invalid Credentials"; </script>';
+		}else{
+			$_SESSION['admin_username'] = $_POST['username'];
+			setcookie("admin_username", $_SESSION['admin_username'], time()+ 60*60*24*5,'/'); // valid for 5 days
+			print_r($_SESSION);
+			
+			header("Location:adminhome.php");
+		}
+	}
+?>
 
 
 <?php 

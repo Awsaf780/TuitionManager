@@ -70,13 +70,6 @@
 			echo '<script>document.getElementById("invalid_user").innerHTML = "User Not Found"; </script>';
 		}
 
-
-		// $sql = "DELETE FROM $usertype WHERE username = '$username'";
-
-		// $result = $conn->query($sql);
-		// print_r($result);
-
-	// echo '<script type="text/javascript"> alert("User removed"); window.location="users.php";</script>';
 	}
  ?>
 
