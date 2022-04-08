@@ -88,6 +88,10 @@
                 -8px -8px 18px #ffffff;
 }
 
+.jumbotron-admin {
+    background: rgb(5,2,50);
+    background: linear-gradient(90deg, rgba(5,2,50,1) 0%, rgba(2,0,36,1) 7%, rgba(13,149,91,1) 43%, rgba(98,185,169,1) 70%);
+}
 
 
 @media only screen and (max-width: 600px) {

@@ -48,15 +48,17 @@
 	<div class="container-fluid admin-login">
 		<form class="col-md-6" action="adminlogin.php" method="post" name="admin_form">
 			<div class="form-group">
-			<label for="adminuser">Username</label>
-			<input type="text" class="form-control" id="adminuser" name="username" required>
+				<label for="adminuser">Username</label>
+				<input type="text" class="form-control" id="adminuser" name="username" required>
 			</div>
 			<div class="form-group">
-			<label for="adminpass">Password</label>
-			<input type="password" class="form-control" id="adminpass" name="password" required>
+				<label for="adminpass">Password</label>
+				<input type="password" class="form-control" id="adminpass" name="password" required>
 			</div>
-			<button name="submit" type="submit" class="btn btn-primary admin-submit" value="Login">Submit</button>
-
+			
+			<div class="form-group">
+				<button name="submit" type="submit" class="btn btn-primary admin-submit w-100 mt-2" value="Login">Submit</button>
+			</div>
 			<small class="form-text text-muted" id="invalid_admin">  </small>
 		</form>
 	</div>

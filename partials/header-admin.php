@@ -44,19 +44,19 @@
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav ml-auto">
               <li class="nav-item active">
-                <a class="nav-link" href="adminlogin.php">ADMIN<span class="sr-only">(current)</span></a>
+                <a class="nav-link" href="index.php">Visit Homepage<span class="sr-only">(current)</span></a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="about.php">About</a>
+                <a class="nav-link" href="users.php">Users</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="signinas.php">Sign  In</a>
+                <a class="nav-link" href="removeuser.php">Remove Users</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="registeras.php">Sign Up</a>
+                <a class="nav-link" href="message.php">Messages</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="FAQ.php">FAQ</a>
+                <a class="nav-link" href="logout.php">Logout</a>
               </li>
 
             </ul>
