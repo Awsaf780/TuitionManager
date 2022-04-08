@@ -1,3 +1,9 @@
+<?php 
+	include './partials/header.php';
+?>
+
+
+<!-- 
 <!DOCTYPE html>
 <html>
 <head>
@@ -13,7 +19,6 @@
 			<p>Password</p>
 			<input type="Password" name="password" placeholder="Enter Password" required="">
 			<input type="submit" name="submit" value="Login"><br>
-			<!-- <a href="#">Forgot password ?</a><br> -->
 			<a href="tsignup.php">Create new account</a><br>
 			<a href="index.html">Home</a>
 		</form>
@@ -21,27 +26,25 @@
 
 
 </body>
-</html>
+</html> -->
 
 
 <?php
-if (isset($_POST["submit"])){
-session_start();
-include 'dbh.php';
+	if (isset($_POST["submit"])){
+		echo $_POST['t_user'];
 
-$username=$_POST['username'];
-$password=$_POST['password'];
+		$username=$_POST['t_user'];
+		$password=$_POST['t_pass'];
 
-$sql="SELECT * FROM teacher WHERE username='$username' AND password ='$password'";
-$result=$conn->query($sql);
+		$sql="SELECT * FROM teacher WHERE username='$username' AND password ='$password'";
+		$result=$conn->query($sql);
 
-if(!$row=$result->fetch_assoc()){
-	// header("Location:error.php");
-	echo '<script type="text/javascript"> alert("Error : Username or password incorrect.") </script>';
-}
-else{
-	$_SESSION['username']=$_POST['username'];
-	header("Location:thome.php");
-}
-}
+		if(!$row=$result->fetch_assoc()){
+			echo '<script>document.getElementById("invalid_teacher").innerHTML = "Invalid Credentials"; </script>';
+		}
+		else{
+			$_COOKIE['teacher']=$_POST['username'];
+			header("Location:thome.php");
+		}
+	}
 ?>

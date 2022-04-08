@@ -1,7 +1,5 @@
 <?php 
 	include './partials/header.php';
-  include 'session.php';
-  
 ?>
 
 <div class="full-height">
