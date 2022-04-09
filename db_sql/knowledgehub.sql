@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 11, 2021 at 05:35 PM
+-- Generation Time: Apr 09, 2022 at 02:07 PM
 -- Server version: 10.4.11-MariaDB
 -- PHP Version: 7.4.6
 
@@ -29,7 +29,7 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `admin` (
   `username` varchar(30) NOT NULL,
-  `password` varchar(30) NOT NULL,
+  `password` varchar(60) NOT NULL,
   `firstname` varchar(30) NOT NULL,
   `lastname` varchar(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -39,7 +39,7 @@ CREATE TABLE `admin` (
 --
 
 INSERT INTO `admin` (`username`, `password`, `firstname`, `lastname`) VALUES
-('raghib', '1234', 'Raghib', 'Noor');
+('awsaf', '$2y$10$vb3mkmavYqciYyLzMrhqUOlmF95539v1p2tg.rxuM/CnNJjB/UIUG', 'Awsaf', 'Mahmood');
 
 -- --------------------------------------------------------
 
@@ -91,7 +91,7 @@ CREATE TABLE `reviews` (
 
 CREATE TABLE `student` (
   `username` varchar(30) NOT NULL,
-  `password` varchar(30) NOT NULL,
+  `password` varchar(60) NOT NULL,
   `firstname` varchar(30) NOT NULL,
   `lastname` varchar(30) NOT NULL,
   `phone` varchar(15) NOT NULL,
@@ -110,7 +110,7 @@ CREATE TABLE `student` (
 
 CREATE TABLE `teacher` (
   `username` varchar(30) NOT NULL,
-  `password` varchar(30) NOT NULL,
+  `password` varchar(60) NOT NULL,
   `firstname` varchar(30) NOT NULL,
   `lastname` varchar(30) NOT NULL,
   `phone` varchar(15) NOT NULL,
@@ -137,6 +137,15 @@ CREATE TABLE `tuitionoffers` (
   `address` varchar(100) NOT NULL,
   `class` varchar(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `tuitionoffers`
+--
+
+INSERT INTO `tuitionoffers` (`id`, `username`, `firstname`, `lastname`, `subjects`, `days`, `prefferedinstitution`, `fee`, `address`, `class`) VALUES
+(14, 'awsaf321', 'AWSAF', 'MAHMOOD', 'Maths, Physics', 4, 'NSU', 8000, '89/4, North Badda, West Wind Point, Flat 11/C', '9'),
+(15, 'awsaf321', 'AWSAF', 'MAHMOOD', 'English', 6, 'NSU', 8000, '89/4, North Badda, West Wind Point, Flat 11/C', '9'),
+(16, 'awsaf321', 'AWSAF', 'MAHMOOD', 'Bangla', 3, 'NSU', 4000, '89/4, North Badda, West Wind Point, Flat 11/C', '9');
 
 --
 -- Indexes for dumped tables
@@ -192,13 +201,13 @@ ALTER TABLE `tuitionoffers`
 -- AUTO_INCREMENT for table `currenttuitions`
 --
 ALTER TABLE `currenttuitions`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT for table `messages`
 --
 ALTER TABLE `messages`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=88;
 
 --
 -- AUTO_INCREMENT for table `reviews`
@@ -210,7 +219,7 @@ ALTER TABLE `reviews`
 -- AUTO_INCREMENT for table `tuitionoffers`
 --
 ALTER TABLE `tuitionoffers`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
