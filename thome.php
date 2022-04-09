@@ -15,7 +15,7 @@
 		$lastname = $row['lastname'];
 		
 	}else {
-		echo 'No user logged in';
+		header("Location:signinas.php");
 	}
 ?>
 
