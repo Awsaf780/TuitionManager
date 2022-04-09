@@ -1,3 +1,15 @@
+<?php
+	if( isset($_COOKIE['logged_in_as']) && isset($_COOKIE['logged_in_user']) ){
+		if( $_COOKIE['logged_in_as'] == 'teacher' ){
+			header("Location:thome.php");
+		}
+		else if ( $_COOKIE['logged_in_as'] == 'student' ){
+			header("Location:home.php");
+		}
+	}else {
+		echo 'No user logged in';
+	}
+?>
 
 <?php
 	include 'dbh.php';
@@ -14,7 +26,9 @@
 			// echo "\$(window).load(function(){\$('#teacher').modal('show')}) ";
 		}
 		else{
-			$_COOKIE['teacher']=$_POST['username'];
+			// $_COOKIE['logged_in_user'] = $_POST['username'];s
+			setcookie("logged_in_user", $_POST['t_user'], time()+ 60*60*24*5,'/');
+			setcookie("logged_in_as", 'teacher', time()+ 60*60*24*5,'/');
 			header("Location:thome.php");
 		}
 	}
@@ -32,7 +46,9 @@
 			// echo "\$(window).load(function(){\$('#teacher').modal('show')}) ";
 		}
 		else{
-			$_COOKIE['student']=$_POST['username'];
+			// $_COOKIE['logged_in_user']=$_POST['username'];
+			setcookie("logged_in_user", $_POST['s_user'], time()+ 60*60*24*5,'/');
+			setcookie("logged_in_as", 'student', time()+ 60*60*24*5,'/');
 			header("Location:home.php");
 		}
 	}

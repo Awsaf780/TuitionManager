@@ -1,51 +1,84 @@
 <?php 
-session_start();
-include 'dbh.php';
 
-$username=$_SESSION['username'];
+	include 'partials/header-teacher.php';
 
-$sql="SELECT * FROM teacher WHERE username='$username'";
-$result=$conn->query($sql);
-$retrive=mysqli_fetch_array($result);
-//print_r($retrive);
+	if( isset($_COOKIE['logged_in_as']) && isset($_COOKIE['logged_in_user']) ){
 
-$firstname=$retrive['firstname'];
-$lastname=$retrive['lastname'];
+		$type = $_COOKIE['logged_in_as'];
+		$username = $_COOKIE['logged_in_user'];
 
-?>
-<!DOCTYPE html>
-<html>
-<head>
-	<title>Home</title>
-</head>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="profilestyle.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<body>
-	<header>
-		<div class="container">
-		<div class="icon-bar">
-			<nav>
-				<ul>	
-					<li><a href="thome.php"><i class="fa fa-home"><br>Home</i></a></li>
-					<li><a href="tprofile.php"><i class="fa fa-user-circle"><br>Profile</i></a></li>
-					<li><a href="findstudent.php"><i class="fa fa-search"><br>Find Students</i></a></li>
-					<li><a href="tstatus.php"><i class="fa fa-users"><br>Status</i></a></li>
-					<li><a href="message.php"><i class="fa fa-telegram"><br>Messages</i></a></li>
-					<li><a href="logout.php"><i class="fa fa-sign-out"><br>Logout</i></a></li>
-				</ul>
-			</nav>
-		</div>
-	</div>
-	</header>
-	<div class="welcome">
-		<h4 class="serif">Welcome to Knowledge Hub <?php echo $firstname." ".$lastname."!"; ?></h4>
-		</div>
+		$sql = "SELECT * FROM $type WHERE username='$username'";
+		$result = $conn->query($sql);
+		$row = mysqli_fetch_array($result);
 
-	<div class="quotes">
-		<h6 class="serif">"Education is the most powerful weapon which you can use to change the world" - Nelson Mandela</h6>
+		$firstname = $row['firstname'];
+		$lastname = $row['lastname'];
 		
+	}else {
+		echo 'No user logged in';
+	}
+?>
+
+<head>
+	<style>
+		.row {
+			display: flex;
+			justify-content: center;
+		}
+	</style>
+</head>
+
+<div class="full-height">
+	
+	<div class="jumbotron jumbotron-fluid jumbotron-admin">
+      <div class="container admin-member-title">
+		  <h1 style="color: white;"><center>Welcome to Knowledge Hub, <br> <b style="font-size: 3rem;"><?php echo $firstname." ".$lastname; ?></b></center></h1>
+      </div>
+    </div>
+
+	<div class="container quotes">
+		<small class="form-text text-muted text-center"> "Education is the most powerful weapon which you can use to change the world" - Nelson Mandela </small>
 	</div>
 
-</body>
-</html>
+	<div class="container menu text-center mt-5">
+		<h2>Quick Navigation</h2><br>
+	<div class="row row-cols-2 row-cols-md-2 text-center">
+
+		<div class="card text-white bg-info mb-5 mx-5" style="max-width: 18rem;">
+		<div class="card-header"><a href="findstudent.php" class="stretched-link" style="text-decoration: none; color: white">Find Students</a></div>
+			<div class="card-body">
+			<i class="fa-solid fa-magnifying-glass" style="font-size: 24px;"></i> <i class="fa-solid fa-people-group"  style="font-size: 24px;"></i>
+			</div>
+		</div>		
+		
+		<div class="card text-white bg-info mb-5 mx-5" style="max-width: 18rem;">
+			<div class="card-header"><a href="tprofile.php" class="stretched-link" style="text-decoration: none; color: white">Profile</a></div>
+			<div class="card-body">
+			<i class="fa-solid fa-user"  style="font-size: 24px;"></i>
+			</div>
+		</div>
+
+		<div class="card text-white bg-info mb-5 mx-5" style="max-width: 18rem;">
+		<div class="card-header"><a href="message.php" class="stretched-link" style="text-decoration: none; color: white">Messages</a></div>
+			<div class="card-body">
+				<i class="fa-solid fa-message" style="font-size: 24px;"></i>
+			</div>
+		</div>		
+		
+		<div class="card text-white bg-danger mb-5 mx-5" style="max-width: 18rem;">
+		<div class="card-header"><a href="logout.php" class="stretched-link" style="text-decoration: none; color: white">Logout</a></div>
+			<div class="card-body">
+				<i class="fa-solid fa-arrow-right-from-bracket" style="font-size: 24px;"></i>
+			</div>
+		</div>
+
+</div>
+	</div>
+	
+</div>
+
+	
+
+<?php
+	include 'partials/footer.php';
+?>
