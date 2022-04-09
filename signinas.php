@@ -6,8 +6,6 @@
 		else if ( $_COOKIE['logged_in_as'] == 'student' ){
 			header("Location:home.php");
 		}
-	}else {
-		echo 'No user logged in';
 	}
 ?>
 

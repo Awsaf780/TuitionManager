@@ -69,6 +69,8 @@
 				echo '<script>document.getElementById("invalid_admin").innerHTML = "Password Matches"; </script>';
 				$_SESSION['admin_username'] = $_POST['username'];
 				setcookie("admin_username", $_SESSION['admin_username'], time()+ 60*60*24*5,'/'); // valid for 5 days
+				setcookie("logged_in_as", 'admin', time()+ 60*60*24*5,'/'); // valid for 5 days
+				
 
 				header("Location:adminhome.php");
 			}

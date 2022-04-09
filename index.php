@@ -1,5 +1,19 @@
 <?php 
 	include './partials/header.php';
+
+	if( isset($_COOKIE['logged_in_as']) ){
+
+		$type = $_COOKIE['logged_in_as'];
+    
+    if($type == 'admin') {
+      header("Location:adminhome.php");
+    }else if ($type == 'teacher') {
+      header("Location:thome.php");
+    }else if ($type == 'student') {
+      header("Location:home.php");
+    }
+		
+	}
 ?>
 
 <div class="full-height">
