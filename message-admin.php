@@ -158,7 +158,6 @@
                     else if (mysqli_num_rows($unique_res) < 1){
 
                         $unique_users = "SELECT DISTINCT message_to FROM `messages` WHERE message_from='$username'";
-                        print_r($unique_users);
 					    $unique_res = $conn->query($unique_users);
 
 					    if(mysqli_num_rows($unique_res) > 0) {
@@ -208,14 +207,14 @@
 											}
 										}
 										
-									}echo '</div>';
+									}
 									
 									
-							}echo '</div></div>';
+							}echo '</div>';
 
 						    
-                        }echo '</div></div>';
-                    }
+                        }
+                    }echo '</div></div></div>';
 
 					
 					?>
