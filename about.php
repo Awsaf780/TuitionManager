@@ -5,7 +5,7 @@
 <div class="container mt-5 full-height bulk-text" style="text-align: justify;">
 	<h1 style="text-align: center; margin-bottom: 30px;">About Us</h1>
 
-	<p>Knowledge Hub is a common platform for both teachers and students. 
+	<p>Tuition Provider is a common platform for both teachers and students. 
 		Here both teachers and students can find each other according to their desire. 
 		To get service from us, everyone needs to open an account with their general information.</p>
 

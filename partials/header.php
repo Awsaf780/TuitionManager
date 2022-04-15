@@ -9,7 +9,7 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 
-	<title>Knowledge Hub</title>
+	<title>Tuition Provider</title>
 
 
 
@@ -56,7 +56,7 @@
 
 
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
-          <a class="navbar-brand" id="logo" href="index.php">Knowledge Hub</a>
+          <a class="navbar-brand" id="logo" href="index.php">Tuition Provider</a>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
