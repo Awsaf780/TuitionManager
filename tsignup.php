@@ -85,7 +85,7 @@
 					<legend>Upload Nid</legend>
 					<!--<p style="margin-bottom:8px">Upload Nid </p>-->
 					<input type="file" id='files' name="files" style="margin-bottom: 5px !important">
-					<img class="loader" src="img/loader.gif">
+					<img class="loader" src="images/loader.gif">
 					
 					<div>
 						<small>Allowed only files with extension (jpg, jpeg, png, gif) <br>				
@@ -105,16 +105,10 @@
 
 		</form>
 	</div>
-
 	<script src="js/jquery.min.js"></script>
 	<script src="js/custom.js"></script>
+
 </body>
-</html>
-
-<?php 
-
-
- ?>
 
 <?php 
 	include './partials/footer.php';
