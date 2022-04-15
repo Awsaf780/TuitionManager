@@ -1,0 +1,445 @@
+html,body{
+	height: 100%;
+}
+body{
+	font-family: Arial,Helvetica,sans-serif;
+	font-size: 15px;
+	line-height: 1.5;
+	padding: 0;
+	margin: 0;
+	background-image: url(uploads/home.jpg);
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+}
+/*Global*/
+.container{
+	width: 80%;
+	margin: auto;
+	overflow: hidden;
+	color: white;
+}
+/*Header*/
+header{
+	background-color: #303235 ;
+	padding-top: 5px;
+}
+
+header ul{
+	margin: 0;
+	padding: 0;
+}
+header li{
+	float: left;
+	display: inline;
+	padding:0 20px 0 20px; 
+	
+}
+.icon-bar {
+    width: 100%;
+    background-color: #303235;
+    overflow: auto;
+}
+
+.icon-bar a {
+    float: left;
+    /*width: 350%;*/
+    text-align: center;
+    padding: 25px 20px;
+    transition: all 0.3s ease;
+    color:#1100D3;
+    font-size: 23px;
+}
+
+.icon-bar a:hover {
+    background-color:#333333;
+    width :100%;
+}
+.profileinfo {
+	background: rgba(0,0,0,0.9);
+	width: 460px;
+	margin: 0 auto;
+	height: auto;
+	color: white;
+	padding: 30px;
+	margin: 50px;
+	float: left;
+	font-size: 24px;
+
+	top: 60%;
+	left: 50%;
+	position: absolute;
+	transform: translate(-50%,-50%);
+}
+.tprofileinfo {
+	background: rgba(0,0,0,0.9);
+	width: 460px;
+	margin: 0 auto;
+	height: auto;
+	color: white;
+	padding: 30px;
+	margin: 50px;
+	float: left;
+	font-size: 24px;
+
+	top: 50%;
+	left: 50%;
+	position: absolute;
+	transform: translate(-50%,-50%);
+}
+.welcome{
+	width: 460px;
+	margin: 0 auto;
+	height: auto;
+	color: #00ff80;
+	padding: 30px;
+	margin: 0;
+	float: left;
+	font-size: 26px;
+    font-family: "Times New Roman", Times, serif;
+	top: 35%;
+	left: 50%;
+	position: absolute;
+	transform: translate(-50%,-50%);
+
+}
+.quotes{
+	width: 460px;
+	margin: 0 auto;
+	height: auto;
+	color: #00ff80;
+	padding: 30px;
+	margin: 0;
+	float: left;
+	font-size: 26px;
+    font-family: "Times New Roman", Times, serif;
+	top: 45%;
+	left: 50%;
+	position: absolute;
+	transform: translate(-50%,-50%);
+
+}
+.tables{
+	width: auto;
+	margin :0 auto;	
+	
+}
+.tables table
+{
+	margin :0 auto;
+
+	border-collapse: collapse;
+	text-align: center;
+	background-color: white;
+	margin-bottom: 10px;
+
+	/*top: 50%;
+	left: 50%;
+	position: absolute;
+	transform: translate(-50%,-50%);*/
+	caption-side: top;
+}
+
+.tables table,td,th
+{
+	border: 1px solid black;
+}
+.tables th{
+	height: 30px;
+}
+.tables th,td{
+	padding: 5px;
+}
+tr:nth-child(even){background-color: #f2f2f2}
+/*Even row*/
+.tables th {
+    background-color: #4CAF50;
+    color: white;
+}
+.tables p{
+	color: white;
+
+}
+.searchbar{
+	padding: 5px;
+	width: 450px;
+	margin :0 auto;
+	display: flex;
+	
+}
+.searchbar select{
+	height: 30px;
+	appearance :none;
+	
+	border-radius: 6px;
+	color: #fff;
+	border: 2px solid #fff;
+	background: transparent;
+	background-color: #201A1A;
+	margin: 5px;
+	font-size: 14px;
+}
+.searchbar input[type="submit"]{
+	border: none;
+	outline: none;
+	height: 30px;
+	background: dodgerblue;
+	color: #fff;
+	font-size: 14px;
+	border-radius: 20px;
+	margin: 5px;
+}
+.searchbar input[type="text"]
+{
+	
+	border-bottom: 1px solid #fff;
+	background: white;
+	outline: none;
+	height: 30px;
+	color: black;
+	font-size: 14px;
+	margin: 5px;
+	border-radius: 20px;
+}
+.searchstudentbutton{
+	width: 77px;
+	margin :0 auto;
+}
+.searchstudentbutton a{
+	border: none;
+	outline: none;
+	text-decoration: none;
+	background-color: orange;
+  color: #333333;
+  margin: 10px;
+  padding: 6px 6px 6px 6px;
+  border-radius: 20px;
+  font-size: 14px;
+  height: 60px;
+}
+.searchstudentbutton a:hover{
+	background-color: dodgerblue;
+}
+/*.checkreview{
+	width: 115px;
+	margin :0 auto;
+}
+.checkreview a{
+	border: none;
+	outline: none;
+	text-decoration: none;
+	background-color: #f2f2f2;
+  	color: #333333;
+  	margin: 10px;
+  	padding: 6px 6px 6px 6px;
+  	border-radius: 20px;
+  	font-size: 14px;
+  	height: 60px;
+}
+.checkreview a:hover{
+	background-color: dodgerblue;
+}*/
+.editprofilebtn{
+	width: 115px;
+	margin :0 auto;
+	margin-top: 20px;
+	margin-left: 90%;
+}
+.editprofilebtn a{
+	border: none;
+	outline: none;
+	text-decoration: none;
+	background-color: #f2f2f2;
+  	color: #333333;
+  	margin: 10px;
+  	padding: 6px 6px 6px 6px;
+  	border-radius: 10px;
+  	font-size: 14px;
+  	height: 60px;
+}
+.editprofilebtn a:hover{
+	background-color: dodgerblue;
+}
+
+.registrationbox{
+	width: 460px;
+	margin: 0 auto;
+	height: auto;
+	background: rgba(0,0,0,0.5);
+	color: #fff;
+	top: 5%;
+	bottom: 20%;
+	/*left: 50%;*/
+	position: relative;
+	/*transform: translate(-50%,-50%);*/
+	box-sizing: border-box;
+	padding: 10px 30px;
+}
+
+.registrationbox p{
+	margin: 0;
+	padding: 0;
+	font-weight: bold;
+}
+.registrationbox input{
+	width: 100%;
+	margin-bottom: 20px;	
+}
+.registrationbox input[type="text"],input[type="password"],input[type="number"]
+{
+	border: none;
+	border-bottom: 1px solid #fff;
+	background: transparent;
+	outline: none;
+	height: 40px;
+	color: #fff;
+	font-size: 16px;
+}
+.registrationbox input[type="submit"]{
+	border: none;
+	outline: none;
+	height: 40px;
+	background: orange;
+	color: #fff;
+	font-size: 18px;
+	border-radius: 20px;
+}
+.registrationbox  select{
+	height: 40px;
+	appearance :none;
+	display: block;
+	border-radius: 4px;
+	color: #fff;
+	border: 2px solid #fff;
+	background: transparent;
+	background-color: #201A1A;
+	margin: 0;
+	padding: 0;
+	font-size: 14px;
+}
+.registrationbox input[type="submit"]:hover
+{
+	cursor: pointer;
+	background: dodgerblue;
+	color: #000;
+}
+.registrationbox a{
+	text-decoration: none;
+	font-size: 12px;
+	line-height: 20px;
+	color: darkgrey;
+	font-size: 14px;
+}
+.registrationbox a:hover{
+	color: dodgerblue;
+}
+
+.checkreview{
+	width: 115px;
+	margin :0 auto;
+	/*margin-top: -130px;
+	margin-left: 90%;*/
+
+}
+.checkreview a{
+	border: none;
+	outline: none;
+	text-decoration: none;
+	background-color: #f2f2f2;
+  	color: #333333;
+  	margin: 10px;
+  	padding: 6px 6px 6px 6px;
+  	border-radius: 20px;
+  	font-size: 14px;
+  	height: 60px;
+}
+.checkreview a:hover{
+	background-color: dodgerblue;
+}
+.homebtn a{
+	text-decoration: none;
+	color: white;
+}
+.homebtn a:hover{
+	color: dodgerblue;
+}
+.loginbox{
+	width: 320px;
+	height: 420px;
+	background: rgba(0,0,0,0.65);
+	color: #fff;
+	top: 50%;
+	left: 50%;
+	position: absolute;
+	transform: translate(-50%,-50%);
+	box-sizing: border-box;
+	padding: 70px 30px;
+}
+.loginbox p{
+	margin: 0;
+	padding: 0;
+	font-weight: bold;
+}
+.loginbox input{
+	width: 100%;
+	margin-bottom: 20px;	
+}
+.loginbox input[type="text"],input[type="password"],input[type="number"],input[type="tel"]
+{
+	border: none;
+	border-bottom: 1px solid #fff;
+	background: transparent;
+	outline: none;
+	height: 40px;
+	color: #fff;
+	font-size: 16px;
+}
+.loginbox input[type="submit"]{
+	border: none;
+	outline: none;
+	height: 40px;
+	background: orange;
+	color: #fff;
+	font-size: 18px;
+	border-radius: 20px;
+}
+.loginbox input[type="submit"]:hover
+{
+	cursor: pointer;
+	background: dodgerblue;
+	color: #000;
+}
+.registrationbox textarea{
+	width: 100%;
+	margin-bottom: 20px;
+	border: none;
+	border-bottom: 1px solid #fff;
+	background: transparent;
+	outline: none;
+	height: 45px;
+	color: #fff;
+	font-size: 16px;
+}
+.loginbox a{
+	text-decoration: none;
+	font-size: 12px;
+	line-height: 20px;
+	color: darkgrey;
+}
+.loginbox a:hover{
+	color: dodgerblue;
+}
+.loginbox select{
+	height: 40px;
+	appearance :none;
+	display: block;
+	border-radius: 4px;
+	color: #fff;
+	border: 2px solid #fff;
+	background: transparent;
+	background-color: #201A1A;
+	margin: 0;
+	padding: 10px;
+	font-size: 15px;
+}

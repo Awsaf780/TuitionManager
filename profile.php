@@ -1,37 +1,31 @@
 <?php 
-// session_start();
- include 'dbh.php';
- include 'session.php';
 
-// $username=$_SESSION['username'];
+include 'partials/header-student.php';
 
-$sql="SELECT * FROM student WHERE username='$username'";
-$result=$conn->query($sql);
-$retrive=mysqli_fetch_array($result);
-//print_r($retrive);
+if(isset($_COOKIE['logged_in_user'])) {
 
-$firstname=$retrive['firstname'];
-$lastname=$retrive['lastname'];
-$phone=$retrive['phone'];
-$region=$retrive['region'];
-$address=$retrive['address'];
-$curriculum=$retrive['curriculum'];
-$class=$retrive['class'];
+	$username=$_COOKIE['logged_in_user'];
 
-// echo "Name: ".$firstname." ".$lastname."<br>";
-// echo "Phone: ".$phone."<br>";
-// echo "Region: ".$region."<br>";
-// echo "Address: ".$address."<br>";
-// echo "Curriculum: ".$curriculum."<br>";
-// echo "Class: ".$class."<br>";
-// echo "Username: ".$username;
+	$sql="SELECT * FROM student WHERE username='$username'";
+	$result=$conn->query($sql);
+	$retrive=mysqli_fetch_array($result);
 
-$_SESSION['$username']=$retrive['username'];
+	$firstname=$retrive['firstname'];
+	$lastname=$retrive['lastname'];
+	$phone=$retrive['phone'];
+	$region=$retrive['region'];
+	$address=$retrive['address'];
+	$curriculum=$retrive['curriculum'];
+	$class=$retrive['class'];
+
+	
+}
+else {
+	header("Location:signinas.php");
+}
 
  ?>
 
-<!DOCTYPE html>
-<html>
 <head>
 	<title>Profile</title>
 	<style> 
@@ -40,46 +34,50 @@ $_SESSION['$username']=$retrive['username'];
 		margin: 0 auto;
 		border-radius: 50%;
 	}
+	.card-header {
+		background-color: rgb(220 118 70);
+		color: white;
+	}
+	body {
+		background: #efdfd2;
+	}
+	.card {
+	}
 </style>
 </head>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="profilestyle.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
 <body>
-	<header>
-		<div class="container">
-		<div class="icon-bar">
-			<nav>
-				<ul>	
-					<li><a href="home.php"><i class="fa fa-home"><br>Home</i></a></li>
-					<li><a href="profile.php"><i class="fa fa-user-circle"><br>Profile</i></a></li>
-					<li><a href="findteacher.php"><i class="fa fa-search"><br>Find Teachers</i></a></li>
-					<li><a href="status.php"><i class="fa fa-users"><br>Status</i></a></li>
-					<li><a href="message.php"><i class="fa fa-telegram"><br>Messages</i></a></li>
-					<li><a href="logout.php"><i class="fa fa-sign-out"><br>Logout</i></a></li>
-				</ul>
-			</nav>
+
+	<div class="container full-height profileinfo">
+		<div class="card border border-dark shadow-0 text-center">
+			<div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
+				<img src="images/kazuha.png" class="img-fluid" />
+			</div>
+
+			<div class="card-header"><?php echo "@".$username; ?></div>
+			
+
+			<div class="card-body">
+				<h5 class="card-title"><?php echo $firstname." ".$lastname; ?></h5><hr>
+
+				<p class="card-text"><?php echo "Phone: ".$phone;?></p><hr>
+
+				<p class="card-text"><?php echo "Region: ".$region;?></p><hr>
+
+				<p class="card-text"><?php echo "Address: ".$address."<br>"; ?></p><hr>
+
+				<p class="card-text"><?php echo "Curriculum: ".$curriculum."<br>"; ?></p><hr>
+
+				<p class="card-text"><?php echo "Class: ".$class."<br>"; ?></p>
+			</div>
+
+			<div class="card-footer"><a class="btn btn-danger" href="editprofile.php">Edit Profile</a></div>
+
 		</div>
 	</div>
-	</header>
-	<div class="profileinfo">
-		<p><?php  if($image = " "){
-			echo "<img width = '125' height = '125' src ='uploads/default.jpg' alt = 'default profile picture'>";
 
-		} ?><p>
-		<p><?php echo "Name: ".$firstname." ".$lastname."<br>"; ?></p>
-		<p><?php echo "Username: ".$username; ?></p>
-		<p><?php echo "Phone: ".$phone."<br>";?></p>
-		<p><?php echo "Region: ".$region."<br>"; ?></p>
-		<p><?php echo "Address: ".$address."<br>"; ?></p>
-		<p><?php echo "Curriculum: ".$curriculum."<br>"; ?></p>
-		<p><?php echo "Class: ".$class."<br>"; ?></p>
-	</div>
-	
-	<div class="editprofilebtn">
-		<a href="editprofile.php">Edit Profile</a>
-	</div>
-	
 
-</body>
-</html>
+	<?php 
+		include 'partials/footer.php';
+	?>

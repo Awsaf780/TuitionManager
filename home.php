@@ -53,7 +53,7 @@
 		</div>		
 		
 		<div class="card text-white bg-info mb-5 mx-5" style="max-width: 18rem;">
-			<div class="card-header"><a href="tprofile.php" class="stretched-link" style="text-decoration: none; color: white">Profile</a></div>
+			<div class="card-header"><a href="profile.php" class="stretched-link" style="text-decoration: none; color: white">Profile</a></div>
 			<div class="card-body">
 			<i class="fa-solid fa-user"  style="font-size: 24px;"></i>
 			</div>

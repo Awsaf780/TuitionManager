@@ -1,19 +1,34 @@
 <?php 
 
+	include 'partials/header-student.php';
 
+	if( isset($_COOKIE['logged_in_as']) && isset($_COOKIE['logged_in_user']) ){
 
+		$type = $_COOKIE['logged_in_as'];
+		$username = $_COOKIE['logged_in_user'];
 
- ?>
+		$sql = "SELECT * FROM $type WHERE username='$username'";
+		$result = $conn->query($sql);
+		$row = mysqli_fetch_array($result);
+
+		$firstname = $row['firstname'];
+		$lastname = $row['lastname'];
+		
+	}else {
+		header("Location:signinas.php");
+	}
+?>
 
 <!DOCTYPE html>
 <html>
 <head>
 	<title></title>
 </head>
-<link rel="stylesheet" href="review.css">
+
 <body>
+
 	
-	<div class="statusbox">
+	<div class="statusabox">
 		<div class="resigninas">
 			<a href="addtutor.php">Add tutor</a>
 			<a href="currenttutor.php">Current Tutors</a>
@@ -29,5 +44,7 @@
 	</div>
 
 
-</body>
-</html>
+	
+<?php
+	include 'partials/footer.php';
+?>
