@@ -1,9 +1,57 @@
-<!DOCTYPE html>
-<html>
+<?php 
+	include './partials/header.php';
+
+	if (isset($_POST["submit"])){
+
+		$username=mysqli_real_escape_string($conn,$_POST['username']);
+		$password=mysqli_real_escape_string($conn,$_POST['password']);
+		$firstName=mysqli_real_escape_string($conn,$_POST['firstName']);
+		$lastName=mysqli_real_escape_string($conn,$_POST['lastName']);
+		$phone=mysqli_real_escape_string($conn,$_POST['phone']);
+		$nid=mysqli_real_escape_string($conn,$_POST['nid']);
+		$institution=mysqli_real_escape_string($conn,$_POST['institution']);
+		$address=mysqli_real_escape_string($conn,$_POST['address']);
+		
+		$sql = "SELECT * FROM teacher WHERE username='$username'";
+		$result=$conn->query($sql);
+		
+		
+			if(!$row = mysqli_fetch_array($result)){
+
+				$password_enc = password_hash($password, PASSWORD_BCRYPT);
+				$sql= "INSERT INTO `teacher` (`username`, `password`, `firstname`, `lastname`, `phone`, `nid`, `institution`, `address`) VALUES ('$username','$password_enc','$firstName','$lastName','$phone','$nid','$institution','$address')";
+			
+				$result=$conn->query($sql);
+			
+				header("Location:tsignin.php");
+			}else{
+				echo '<script type="text/javascript"> alert("Error : Username already exists") </script>';
+			
+				// header("Location:signup.html");
+			}
+		
+		}
+?>
+
 <head>
 	<title>Teacher Register</title>
 </head>
-<link rel="stylesheet" href="signin.css">
+<link rel="stylesheet" href="css/signin.css">
+
+<head>
+	<title>Student Register</title>
+	<style>
+		body {
+			background-color: #a2ebe3;
+		}
+		@media only screen and (max-width: 600px) {
+			.registrationbox {
+				width: 100%;
+			}
+		}
+	</style>
+</head>
+
 <body>
 	<div class="registrationbox">
 		<h1>Teacher Register</h1>
@@ -53,7 +101,7 @@
 						
 			<input type="submit" name="submit" value="Sign Up"><br>
 			
-			<p style="text-align: center;">Already have an account? <a href="tsignin.php">Sign In</a></p>		
+			<p style="text-align: center;">Already have an account? <a href="signinas.php">Sign In</a></p>		
 
 		</form>
 	</div>
@@ -65,36 +113,9 @@
 
 <?php 
 
-if (isset($_POST["submit"])){
-include 'dbh.php';
 
-$username=mysqli_real_escape_string($conn,$_POST['username']);
-$password=mysqli_real_escape_string($conn,$_POST['password']);
-$firstName=mysqli_real_escape_string($conn,$_POST['firstName']);
-$lastName=mysqli_real_escape_string($conn,$_POST['lastName']);
-$phone=mysqli_real_escape_string($conn,$_POST['phone']);
-$nid=mysqli_real_escape_string($conn,$_POST['nid']);
-$institution=mysqli_real_escape_string($conn,$_POST['institution']);
-$address=mysqli_real_escape_string($conn,$_POST['address']);
-
-$sql = "SELECT * FROM teacher WHERE username='$username'";
-$result=$conn->query($sql);
-
-
-if(!$row = mysqli_fetch_array($result))
-{
-	$sql= "INSERT INTO `teacher` (`username`, `password`, `firstname`, `lastname`, `phone`, `nid`, `institution`, `address`) VALUES ('$username','$password','$firstName','$lastName','$phone','$nid','$institution','$address')";
-
-	$result=$conn->query($sql);
-
-	header("Location:tsignin.php");
-}
-else
-{
-	echo '<script type="text/javascript"> alert("Error : Username already exists") </script>';
-
-	// header("Location:signup.html");
-}
-
-}
  ?>
+
+<?php 
+	include './partials/footer.php';
+?>

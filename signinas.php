@@ -13,42 +13,60 @@
 	include 'dbh.php';
 	if (isset($_POST["t_submit"])){
 
-		$username=$_POST['t_user'];
-		$password=$_POST['t_pass'];
+		$username=mysqli_real_escape_string($conn,$_POST['t_user']);
+		$password=mysqli_real_escape_string($conn,$_POST['t_pass']);
 
-		$sql="SELECT * FROM teacher WHERE username='$username' AND password ='$password'";
+		$sql="SELECT * FROM teacher WHERE username='$username'";
 		$result=$conn->query($sql);
 
-		if(!$row=$result->fetch_assoc()){
-			echo '<script>document.getElementById("invalid_teacher").innerHTML = "Invalid Credentials"; </script>';
-			// echo "\$(window).load(function(){\$('#teacher').modal('show')}) ";
-		}
-		else{
-			// $_COOKIE['logged_in_user'] = $_POST['username'];s
-			setcookie("logged_in_user", $_POST['t_user'], time()+ 60*60*24*5,'/');
-			setcookie("logged_in_as", 'teacher', time()+ 60*60*24*5,'/');
-			header("Location:thome.php");
+		if( $row = $result->fetch_assoc() ){
+			$db_password = $row['password'];
+
+			if( password_verify($password, $db_password) ){
+				// echo 'Password Matches';
+				setcookie("logged_in_user", $username, time()+ 60*60*24*5,'/');
+				setcookie("logged_in_as", 'teacher', time()+ 60*60*24*5,'/');
+				header("Location:thome.php");
+				
+
+			}
+			else {
+				echo '<script>alert("Password Does Not Match")</script>';
+			}
+		}else{
+			
+			echo '<script>alert("No such user")</script>';
 		}
 	}
 
 	if (isset($_POST["s_submit"])){
 
-		$username=$_POST['s_user'];
-		$password=$_POST['s_pass'];
+    $username=mysqli_real_escape_string($conn,$_POST['s_user']);
+		$password=mysqli_real_escape_string($conn,$_POST['s_pass']);
 
-		$sql="SELECT * FROM student WHERE username='$username' AND password ='$password'";
+		$sql="SELECT * FROM student WHERE username='$username'";
 		$result=$conn->query($sql);
 
-		if(!$row=$result->fetch_assoc()){
-			echo '<script>document.getElementById("invalid_teacher").innerHTML = "Invalid Credentials"; </script>';
-			// echo "\$(window).load(function(){\$('#teacher').modal('show')}) ";
+		if( $row = $result->fetch_assoc() ){
+			$db_password = $row['password'];
+
+			if( password_verify($password, $db_password) ){
+				// echo 'Password Matches';
+				setcookie("logged_in_user", $username, time()+ 60*60*24*5,'/');
+				setcookie("logged_in_as", 'student', time()+ 60*60*24*5,'/');
+				header("Location:home.php");
+				
+
+				// header("Location:adminhome.php");
+			}
+			else {
+				echo '<script>alert("Password Does Not Match")</script>';
+			}
+		}else{
+			
+			echo '<script>alert("No such user")</script>';
 		}
-		else{
-			// $_COOKIE['logged_in_user']=$_POST['username'];
-			setcookie("logged_in_user", $_POST['s_user'], time()+ 60*60*24*5,'/');
-			setcookie("logged_in_as", 'student', time()+ 60*60*24*5,'/');
-			header("Location:home.php");
-		}
+
 	}
 
 	

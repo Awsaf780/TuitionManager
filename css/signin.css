@@ -4,7 +4,6 @@ html,body{
 body{
 	margin: 0;
 	padding: 0;
-	background-image: url(uploads/bookshelf.jpg);
 	/*background-color: #1a1a1a ;*/
 	background-size: cover;
 	background-position: center;
@@ -12,9 +11,9 @@ body{
 	font-family: sans-serif;
 }
 .loginbox{
-	width: 320px;
-	height: 420px;
-	background: rgba(0,0,0,0.65);
+	width: 350px;
+	height: 500px;
+	background: rgb(1 86 86);
 	color: #fff;
 	top: 50%;
 	left: 50%;
@@ -22,6 +21,7 @@ body{
 	transform: translate(-50%,-50%);
 	box-sizing: border-box;
 	padding: 70px 30px;
+	border-radius: 30px;
 }
 h1{
 	margin: 0;
@@ -49,7 +49,7 @@ h1{
 	width: 100%;
 	margin-bottom: 20px;	
 }
-.loginbox input[type="text"],input[type="password"],input[type="number"],input[type="tel"]
+.loginbox input[type="text"],.loginbox input[type="password"],input[type="number"],input[type="tel"]
 {
 	border: none;
 	border-bottom: 1px solid #fff;
@@ -71,7 +71,7 @@ h1{
 .loginbox input[type="submit"]:hover
 {
 	cursor: pointer;
-	background: dodgerblue;
+	background: rgb(255, 255, 255);
 	color: #000;
 }
 .registrationbox textarea{
@@ -109,14 +109,12 @@ h1{
 }
 
 
-.registrationbox{
-	width: 460px;
+.registrationbox {
+	width: 40%;
 	margin: 0 auto;
 	height: auto;
-	background: rgba(0,0,0,0.5);
+	background: rgb(1 86 86);
 	color: #fff;
-	top: 10%;
-	bottom: 20%;
 	/*left: 50%;*/
 	position: relative;
 	/*transform: translate(-50%,-50%);*/
@@ -230,7 +228,6 @@ h1{
 }
 
 
-}
 header{
 	background-color: #595959 ;
 	padding-top: 5px;
