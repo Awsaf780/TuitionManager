@@ -19,14 +19,36 @@
 	}
 ?>
 
+<head>
+	<style>
+		body {
+			background-color: #215a80;
+		}
+		.bg-primary {
+			background: rgb(25 18 65)!important;
+		}
+		.card-title {
+			color: grey;
+		}
+
+
+@media only screen and (max-width: 600px) {
+	.registrationbox{
+		width: 100%;
+	}
+}
+	</style>
+</head>
+
+
 <div class="full-height">
 
-	<div class="container">
+	<!-- <div class="container">
 		<a href="searchstudent.php">Search</a>
-	</div>
+	</div> -->
 
 	<div class="container tuition-offers mt-5">
-		<h1>Tuition Offers</h1><br>
+		<h1 style="color: white; text-align: center;">Tuition Offers</h1><br>
 
 		<!-- <form action="findstudent.php"> -->
 			<div class="input-group mb-3">

@@ -1,59 +1,110 @@
 <?php 
 
+	include 'partials/header-teacher.php';
 
- ?>
+	if( isset($_COOKIE['logged_in_as']) && isset($_COOKIE['logged_in_user']) ){
+
+		$type = $_COOKIE['logged_in_as'];
+		$username = $_COOKIE['logged_in_user'];
+
+		$sql = "SELECT * FROM $type WHERE username='$username'";
+		$result = $conn->query($sql);
+		$row = mysqli_fetch_array($result);
+
+		$firstname = $row['firstname'];
+		$lastname = $row['lastname'];
+		
+	}else {
+		header("Location:signinas.php");
+	}
+
+	if(isset($_POST["delete"]))
+	{
+		$teacher=$username;
+		$student=$_POST['student_name'];
+
+		$sql1="DELETE FROM currenttuitions WHERE student='$student' AND teacher='$teacher'";
+		$result=$conn->query($sql1);
+		// header("Location:currenttutor.php");
+		if($result){
+			echo '<script type="text/javascript"> alert("Tutor deleted");window.location="tstatus.php";</script>';
+		}
+		else {
+			echo '<script type="text/javascript"> alert("Could Not Delete");</script>';
+		}
+
+		
+	}
+?>
 
 
-<!DOCTYPE html>
-<html>
 <head>
-	<title></title>
+<link rel="stylesheet" href="css/signin.css">
+	<style>
+		body {
+			background-color: #215a80;
+		}
+		.bg-primary {
+			background: rgb(25 18 65)!important;
+		}
+		.card-title {
+			color: grey;
+		}
+
+
+@media only screen and (max-width: 600px) {
+	.registrationbox{
+		width: 100%;
+	}
+}
+	</style>
 </head>
- <link rel="stylesheet" href="profilestyle.css">
- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
 <body>
-	<header>
-		<div class="container">
-		<div class="icon-bar">	
-			<nav>
-				<ul>	
-					<li><a href="thome.php"><i class="fa fa-home"><br>Home</i></a></li>
-					<li><a href="tprofile.php"><i class="fa fa-user-circle"><br>Profile</i></a></li>
-					<li><a href="findstudent.php"><i class="fa fa-search"><br>Find Students</i></a></li>
-					<li><a href="tstatus.php"><i class="fa fa-users"><br>Status</i></a></li>
-					<li><a href="message.php"><i class="fa fa-telegram"><br>Messages</i></a></li>
-					<li><a href="logout.php"><i class="fa fa-sign-out"><br>Logout</i></a></li>
-				</ul>
-			</nav>
-		</div>
-	</div>
-	</header>
-	<h1 style="text-align: center; color: white;">Your Students</h1>
-	<div class="tables">
-	<table>
-		<tr>
- 			<th>Student Name</th>
- 			<th>Phone</th>
+	
+	<div class="container full-height mt-5">
+	<h1 style="color: white; text-center">Current Students</h1>
+	<div class="row row-cols-1 row-cols-md-2">
 	
 	<?php 
-	include 'dbh.php';
-	include 'session.php';
-
-	$username=$_SESSION['username'];
 
 	$sql="SELECT * FROM currenttuitions WHERE teacher='$username'";
 	$result=$conn->query($sql);
 	// $retrive=mysqli_fetch_array($result);
 
-	while($row = mysqli_fetch_assoc($result)){
-	echo 
-			"<tr>
-				<td>" . $row['student'] . "</td>
-				<td>" . $row['studentphone']. "</td>
-			</tr>" ;
-	}
+	while($row = mysqli_fetch_assoc($result))
+				{
+
+					echo "<div class=\"col mb-4\">
+							<div class=\"card text-center \">
+								<div class=\"card-header bg-primary text-white \">".$row['student']."</div>
+
+								<div class=\"card-body\">
+									<h5 class=\"card-title\">".$row['studentphone']."</h5><hr>
+									
+									<form action=\"tstatus.php\" method=\"post\">
+									<input type=\"hidden\" name=\"student_name\" value=\"".$row['student']."\">
+									<input class=\"btn btn-danger\" type=\"submit\" name=\"delete\" value=\"delete\">
+									</form>
+									
+								</div>
+
+							</div>
+							</div>";
+
+
+				}
+
 	 ?>
-	 </table>
 	</div>
-</body>
-</html>
+	</div>
+
+	<!-- <div class="checkreview">
+	<a href="checkreview.php">Check Review</a>
+	</div> -->
+
+	
+
+<?php
+	include 'partials/footer.php';
+?>
