@@ -1,30 +1,30 @@
 <?php 
-session_start();
-include 'dbh.php';
 
-$username=$_SESSION['username'];
+include 'partials/header-teacher.php';
 
-$sql="SELECT * FROM teacher WHERE username='$username'";
-$result=$conn->query($sql);
-$retrive=mysqli_fetch_array($result);
-//print_r($retrive);
+if(isset($_COOKIE['logged_in_user'])) {
 
-$firstname=$retrive['firstname'];
-$lastname=$retrive['lastname'];
-$phone=$retrive['phone'];
-$institution=$retrive['institution'];
-$address=$retrive['address'];
+	$username=$_COOKIE['logged_in_user'];
 
-// echo "Name: ".$firstname." ".$lastname."<br>";
-// echo "Phone: ".$phone."<br>";
-// echo "Institution: ".$institution."<br>";
-// echo "Address: ".$address."<br>";
-// echo "Username: ".$username;
+	$sql="SELECT * FROM teacher WHERE username='$username'";
+	$result=$conn->query($sql);
+	$retrive=mysqli_fetch_array($result);
+
+	$firstname=$retrive['firstname'];
+	$lastname=$retrive['lastname'];
+	$phone=$retrive['phone'];
+	$nid=$retrive['nid'];
+	$institution=$retrive['institution'];
+	$address=$retrive['address'];
+
+	
+}
+else {
+	header("Location:signinas.php");
+}
 
  ?>
 
-<!DOCTYPE html>
-<html>
 <head>
 	<title>Profile</title>
 	<style> 
@@ -33,43 +33,48 @@ $address=$retrive['address'];
 		margin: 0 auto;
 		border-radius: 50%;
 	}
+	.card-header {
+		background-color: rgb(25 18 65);
+		color: white;
+	}
+	body {
+		background: #215a80;
+	}
+	.card {
+	}
 </style>
 </head>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="profilestyle.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
 <body>
-	<header>
-		<div class="container">
-		 <div class="icon-bar">	
-			<nav>
-				<ul>	
-					<li><a href="thome.php"><i class="fa fa-home"><br>Home</i></a></li>
-					<li><a href="tprofile.php"><i class="fa fa-user-circle"><br>Profile</i></a></li>
-					<li><a href="findstudent.php"><i class="fa fa-search"><br>Find Students</i></a></li>
-					<li><a href="tstatus.php"><i class="fa fa-users"><br>Status</i></a></li>
-					<li><a href="message.php"><i class="fa fa-telegram"><br>Messages</i></a></li>
-					<li><a href="logout.php"><i class="fa fa-sign-out"><br>Logout</i></a></li>
-				</ul>
-			</nav>
+
+	<div class="container full-height profileinfo">
+		<div class="card border border-dark shadow-0 text-center">
+			<div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
+				<img src="images/dains.png" style="width: 50%;" class="img-fluid" />
+			</div> <br>
+
+			<div class="card-header"><?php echo "@".$username; ?></div>
+			
+
+			<div class="card-body">
+				<h5 class="card-title"><?php echo $firstname." ".$lastname; ?></h5><hr>
+
+				<p class="card-text"><?php echo "Phone: ".$phone;?></p><hr>
+
+				<p class="card-text"><?php echo "NID: ".$nid;?></p><hr>
+
+				<p class="card-text"><?php echo "Address: ".$address."<br>"; ?></p><hr>
+
+				<p class="card-text"><?php echo "Institution: ".$institution."<br>"; ?></p>
+			</div>
+
+			<div class="card-footer"><a class="btn btn-danger" href="teditprofile.php">Edit Profile</a></div>
+
 		</div>
 	</div>
-	</header>
-		<div class="tprofileinfo">
-		<p><?php  if($image = " "){
-			echo "<img width = '125' height = '125' src ='uploads/default.jpg' alt = 'default profile picture'>";
 
-		} ?><p>
-		<p><?php echo "Name: ".$firstname." ".$lastname."<br>"; ?></p>
-		<p><?php echo "Username: ".$username; ?></p>
-		<p><?php echo "Phone: ".$phone."<br>";?></p>
-		<p><?php echo "Institution: ".$institution."<br>"; ?></p>
-		<p><?php echo "Address: ".$address."<br>"; ?></p>
-	</div>
 
-	<div class="editprofilebtn">
-		<a href="teditprofile.php">Edit Profile</a>
-	</div>
-
-</body>
-</html>
+	<?php 
+		include 'partials/footer.php';
+	?>

@@ -17,7 +17,7 @@ if(isset($_COOKIE['logged_in_user'])) {
 	$address=$retrive['address'];
 	$curriculum=$retrive['curriculum'];
 	$class=$retrive['class'];
-
+ 
 	
 }
 else {
