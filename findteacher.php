@@ -62,6 +62,9 @@
 		body {
 			background-color: #1c6860;
 		}
+        .registrationbox{
+            border-radius: 30px;
+        }
 		@media only screen and (max-width: 600px) {
 			.registrationbox{
                 width: 100%;
@@ -73,7 +76,7 @@
 
 <body>
 
-<div class="full-height">
+<div class="full-height container mt-5">
 
 
     <div class="registrationbox">

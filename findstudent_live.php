@@ -36,6 +36,7 @@ if(mysqli_num_rows($result)>0){
 										<div class=\"form-group mb-2\">
 										<label for=\"staticEmail2\" class=\"sr-only\">Username</label>
 										<input type=\"text\" class=\"form-control\" id=\"staticEmail2\" name=\"to\" value=\"".$row['username']."\" disabled>
+										<input type=\"hidden\" class=\"form-control\" id=\"staticEmail2\" name=\"to\" value=\"".$row['username']."\">
 										</div>
 
 										<div class=\"form-group mx-sm-3 mb-2\">

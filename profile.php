@@ -32,16 +32,28 @@ else {
 	img {
 		display: block;
 		margin: 0 auto;
-		border-radius: 50%;
 	}
 	.card-header {
-		background-color: rgb(220 118 70);
+		background-color: rgb(1 86 86);
 		color: white;
 	}
 	body {
-		background: #efdfd2;
+		background: #1c6860;
 	}
 	.card {
+		width: 60%;
+		border-radius: 30px;
+	}
+	.profileinfo {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+
+	@media only screen and (max-width: 600px) {
+		.card{
+			width: 100%;
+		}
 	}
 </style>
 </head>
@@ -49,10 +61,10 @@ else {
 
 <body>
 
-	<div class="container full-height profileinfo">
+	<div class="container mt-5 full-height profileinfo">
 		<div class="card border border-dark shadow-0 text-center">
 			<div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
-				<img src="images/kazuha.png" class="img-fluid" />
+				<img src="images/kazuha.png" style="width: 50%;" class="img-fluid" />
 			</div>
 
 			<div class="card-header"><?php echo "@".$username; ?></div>

@@ -31,16 +31,31 @@ else {
 	img {
 		display: block;
 		margin: 0 auto;
-		border-radius: 50%;
 	}
 	.card-header {
-		background-color: rgb(25 18 65);
+		background-color:  rgb(25 18 65);
 		color: white;
 	}
 	body {
-		background: #215a80;
+		background-color: #215a80;
+	}
+	.card-title {
+		color: grey;
 	}
 	.card {
+		width: 60%;
+		border-radius: 30px;
+	}
+	.profileinfo {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+
+	@media only screen and (max-width: 600px) {
+		.card{
+			width: 100%;
+		}
 	}
 </style>
 </head>
