@@ -22,6 +22,54 @@
 ?>
 
 
+<?php
+	if (isset($_POST["submit"]) ){
+
+		$username=$_POST['username'];
+		$password=$_POST['password'];
+
+		// Check if username exists
+			// If exists, get encrypted password for given username
+				// decrypt the password from DB and match with password from POST
+					// If same, save username to session/cookies and redirect
+					// If not same, print password error msg
+			// If username doesnot exist, display no such user
+			
+		$sql="SELECT * FROM admin WHERE username='$username'";
+		
+		$result=$conn->query($sql);
+
+		if( $row = $result->fetch_assoc() ){
+			$db_password = $row['password'];
+
+			if( password_verify($password, $db_password) ){
+				echo '<script>document.getElementById("invalid_admin").innerHTML = "Password Matches"; </script>';
+				$_SESSION['admin_username'] = $_POST['username'];
+				setcookie("admin_username", $_SESSION['admin_username'], time()+ 60*60*24*5,'/'); // valid for 5 days
+				setcookie("logged_in_as", 'admin', time()+ 60*60*24*5,'/'); // valid for 5 days
+				
+
+				header("Location:adminhome.php");
+			}
+			else {
+				echo '<script>alert("Password Does Not Match")</script>';
+			}
+		}else{
+			
+			echo '<script>alert("No Such User")</script>';
+
+			// $_SESSION['admin_username'] = $_POST['username'];
+			// setcookie("admin_username", $_SESSION['admin_username'], time()+ 60*60*24*5,'/'); // valid for 5 days
+			// print_r($_SESSION);
+			
+			// header("Location:adminhome.php");
+		}
+
+
+	}
+?>
+
+
 
 
 <div class="container mt-5 full-height">
@@ -43,54 +91,6 @@
 		</form>
 	</div>
 </div>
-
-<?php
-	if (isset($_POST["submit"]) ){
-
-		$username=$_POST['username'];
-		$password=$_POST['password'];
-
-		// Check if username exists
-			// If exists, get encrypted password for given username
-				// decrypt the password from DB and match with password from POST
-					// If same, save username to session/cookies and redirect
-					// If not same, print password error msg
-			// If username doesnot exist, display no such user
-			
-		$sql="SELECT * FROM admin WHERE username='$username'";
-		
-		$result=$conn->query($sql);
-
-		if( $row = $result->fetch_assoc() ){
-			$db_password = $row['password'];
-			echo $db_password;
-
-			if( password_verify($password, $db_password) ){
-				echo '<script>document.getElementById("invalid_admin").innerHTML = "Password Matches"; </script>';
-				$_SESSION['admin_username'] = $_POST['username'];
-				setcookie("admin_username", $_SESSION['admin_username'], time()+ 60*60*24*5,'/'); // valid for 5 days
-				setcookie("logged_in_as", 'admin', time()+ 60*60*24*5,'/'); // valid for 5 days
-				
-
-				header("Location:adminhome.php");
-			}
-			else {
-				echo '<script>document.getElementById("invalid_admin").innerHTML = "Password Does Not Match"; </script>';
-			}
-		}else{
-			
-			echo '<script>document.getElementById("invalid_admin").innerHTML = "No Such User"; </script>';
-
-			// $_SESSION['admin_username'] = $_POST['username'];
-			// setcookie("admin_username", $_SESSION['admin_username'], time()+ 60*60*24*5,'/'); // valid for 5 days
-			// print_r($_SESSION);
-			
-			// header("Location:adminhome.php");
-		}
-
-
-	}
-?>
 
 
 <?php 

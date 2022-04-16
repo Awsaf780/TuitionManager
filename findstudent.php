@@ -29,7 +29,7 @@
 		<h1>Tuituion Offers</h1>
 		<div class="row row-cols-1 row-cols-md-3 mt-5">
 		<?php 
-				include 'dbh.php';
+				// include 'dbh.php';
 				$sql="SELECT * FROM `tuitionoffers`";
 				$result=$conn->query($sql);
 

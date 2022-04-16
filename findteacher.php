@@ -1,13 +1,31 @@
 <?php 
     include 'partials/header-student.php';
+
+    if( isset($_COOKIE['logged_in_as']) && isset($_COOKIE['logged_in_user']) ){
+
+		$type = $_COOKIE['logged_in_as'];
+		$username = $_COOKIE['logged_in_user'];
+
+		$sql = "SELECT * FROM $type WHERE username='$username'";
+		$result = $conn->query($sql);
+		$row = mysqli_fetch_array($result);
+
+		$firstname = $row['firstname'];
+		$lastname = $row['lastname'];
+		
+	}else {
+		header("Location:signinas.php");
+	}
+
+
     if (isset($_POST["submit"])){
 
         $subjects=$_POST['subjects'];
         $days=$_POST['days'];
         $prefferedinstitution=$_POST['prefferedinstitution'];
         $fee=$_POST['fee'];
+        
 
-        $username=$_SESSION['username'];
 
 
         $sql="SELECT * FROM student WHERE username='$username'";
@@ -29,7 +47,7 @@
 
         // header("Location:home.php");
 
-        echo '<script type="text/javascript"> alert("Offer posted sucessfully.");window.location="home.php";</script>';
+        echo '<script type="text/javascript"> alert("Offer posted sucessfully.");window.location="youroffers.php";</script>';
 
     }
 

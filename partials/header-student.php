@@ -61,7 +61,6 @@
                   <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                     <a class="dropdown-item" href="addtutor.php">Add Tutor</a>
                     <a class="dropdown-item" href="currenttutor.php">Current Tutors</a>
-                    <a class="dropdown-item" href="deletetutor.php">Delete Tutors</a>
                     
                     
                     <div class="dropdown-divider"></div>

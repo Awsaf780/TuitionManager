@@ -1,78 +1,31 @@
 <?php 
 
+	include 'partials/header-student.php';
 
+	if( isset($_COOKIE['logged_in_as']) && isset($_COOKIE['logged_in_user']) ){
 
- ?>
+		$type = $_COOKIE['logged_in_as'];
+		$username = $_COOKIE['logged_in_user'];
 
-<!DOCTYPE html>
-<html>
-<head>
-	<title></title>
-</head>
-<link rel="stylesheet" href="review.css">
-<body>
-	<center><h3 style="color: white;">Your Offers</h3></center>
-	<div class="tables">
-	<table>
-		<tr>
-			<th>ID</th>
-			<th>Subjects</th>
-			<th>Days</th>
-			<th>Preffered Institution</th>
-			<th>Fee(Tk.)</th>
-		</tr>
+		$sql = "SELECT * FROM $type WHERE username='$username'";
+		$result = $conn->query($sql);
+		$row = mysqli_fetch_array($result);
+
+		$firstname = $row['firstname'];
+		$lastname = $row['lastname'];
 		
-		<?php
-include 'dbh.php';
-include 'session.php';
+	}else {
+		header("Location:signinas.php");
+	}
 
-// $username=$_SESSION['$username'];
-
-$sql="SELECT * FROM tuitionoffers WHERE username='$username'";
-$result=$conn->query($sql);
-while($row = mysqli_fetch_assoc($result))
-{
-	echo 
-		"<tr>
-			<td>" .$row['id']."</td>
-			<td>" .$row['subjects']."</td>
-			<td>" .$row['days']."</td>
-			<td>" .$row['prefferedinstitution']."</td>
-			<td>" .$row['fee']."</td>
-		</tr>";
-}
+?>
 
 
- ?>
-
-
-
-	</table>
-	</div>
-	<br><br>
-	<div class="deloff">
-		<center><p>Delete Offer</p></center>
-	</div>
-	
-	<div class="searchbar">
-	<form action="youroffers.php" method="post">
-		
-		<input type="text" name="id" placeholder="Enter offer ID" required="">
-		<input type="submit" name="submit" value="delete">
-	</form>
-	</div>
 
 	<?php 
 
-	// $sql="SELECT * FROM tuitionoffers WHERE username='$username'";
-	// 	$result=$conn->query($sql);
-	// 	$retrive=mysqli_fetch_array($result);
-	// 	$username1=$retrive['username'];
-	// 	echo $username1;
-
-
-	if(isset($_POST["submit"])){
-		$id=mysqli_real_escape_string($conn,$_POST['id']);
+	if(isset($_POST["Delete"])){
+		$id=mysqli_real_escape_string($conn,$_POST['offer_id']);
 
 		$sql = "SELECT * FROM `tuitionoffers` WHERE id='$id'";
 		$result=$conn->query($sql);
@@ -97,12 +50,73 @@ while($row = mysqli_fetch_assoc($result))
 
 	 ?>
 
+<head>
+	<title>Your Offers</title>
+	<style>
+		body {
+			background-color: #1c6860;
+		}
+		.bg-primary {
+			background: rgb(1 86 86)!important;
+		}
+		.card-title {
+			color: grey;
+		}
 
 
-	<br>
-	<div class="homebtn">
-		<center><a href="home.php">Home</a></center>
-	</div>
+@media only screen and (max-width: 600px) {
+	.registrationbox{
+		width: 100%;
+	}
+}
+	</style>
+</head>
+<body>
 	
+
+<div class="full-height">
+
+	<div class="container tuition-offers mt-5">
+		<h3 style="color: white; text-align: center">Offers Posted by You</h3>
+		<div class="row row-cols-1 row-cols-md-3 mt-5">
+		<?php 
+				// include 'dbh.php';
+				$sql="SELECT * FROM tuitionoffers WHERE username='$username'";
+				$result=$conn->query($sql);
+
+
+				while($row = mysqli_fetch_assoc($result))
+				{
+
+					echo "<div class=\"col mb-5\">
+							<div class=\"card text-center \">
+								<div class=\"card-header bg-primary text-white \">".$row['firstname']." ".$row['lastname']."</div>
+
+								<div class=\"card-body\">
+									<h5 class=\"card-title\">".$row['subjects']."</h5><hr>
+									<p class=\"card-text\">Preferred Instituion: ". $row['prefferedinstitution'] ."</p>
+									<p class=\"card-text\">Location: ".$row['address']." </p>
+									<p class=\"card-text\">Fee: ". $row['fee'] ." /= BDT</p><hr>
+
+									<form action=\"youroffers.php\" method=\"post\">
+									<input type=\"hidden\" name=\"offer_id\" value=\"".$row['id']."\">
+									<input class=\"btn btn-danger\" type=\"submit\" name=\"Delete\" value=\"Delete\">
+									</form>
+									
+								</div>
+
+								<div class=\"card-footer\">".$row['days']." days a week</div>
+
+							</div>
+							</div>";
+				}
+			?>
+		
+			</div>
+	</div>
+</div>
+
 </body>
-</html>
+<?php
+	include 'partials/footer.php';
+?>
