@@ -28,7 +28,6 @@
 		<table class="table table-striped">
 			<thead class="thead-dark">
 				<tr>
-				<th scope="col">#</th>
 				<th scope="col">Username</th>
 				<th scope="col">First Name</th>
 				<th scope="col">Last Name</th>
@@ -49,7 +48,6 @@
 				{   //Creates a loop to loop through results
 				echo 
 				"<tr>
-					<th>0</th>
 					<td>" . $row['username'] . "</td>
 					<td>" .$row['firstname']. "</td>
 					<td>" .$row['lastname']."</td>
@@ -77,7 +75,6 @@
 		<table class="table table-striped">
 			<thead class="thead-dark">
 				<tr>
-				<th scope="col">#</th>
 				<th scope="col">Username</th>
 				<th scope="col">First Name</th>
 				<th scope="col">Last Name</th>
@@ -96,7 +93,6 @@
 				{   //Creates a loop to loop through results
 				echo 
 				"<tr>
-					<th>0</th>
 					<td>" . $row['username'] . "</td>
 					<td>" .$row['firstname']. "</td>
 					<td>" .$row['lastname']."</td>

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 09, 2022 at 02:07 PM
+-- Generation Time: Apr 17, 2022 at 06:04 AM
 -- Server version: 10.4.11-MariaDB
 -- PHP Version: 7.4.6
 
@@ -55,6 +55,15 @@ CREATE TABLE `currenttuitions` (
   `studentphone` varchar(15) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data for table `currenttuitions`
+--
+
+INSERT INTO `currenttuitions` (`id`, `student`, `teacher`, `teacherphone`, `studentphone`) VALUES
+(18, 'awsaf_s', 'awsaf_t', '01625604871', '01625604871'),
+(19, 'raghib_noor', 'asif_dewan', '01957375831', '01675648371'),
+(20, 'raghib_noor', 'awsaf_t', '01625604871', '01675648371');
+
 -- --------------------------------------------------------
 
 --
@@ -102,6 +111,14 @@ CREATE TABLE `student` (
   `class` varchar(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data for table `student`
+--
+
+INSERT INTO `student` (`username`, `password`, `firstname`, `lastname`, `phone`, `nid`, `region`, `address`, `curriculum`, `class`) VALUES
+('awsaf_s', '$2y$10$N1QS1tqFAYMrXh4g1.aKH.YyDkGua.xVBwBTO.JzwYC0tmrJWuhCS', 'Awsaf', 'Mahmood', '01625604871', '', 'Mohammadpur', '? - 89/4, North Badda, West Wind Point, Flat 11/C', 'English Medium', '5'),
+('raghib_noor', '$2y$10$6EKo0uS6gYaQMsf.YlS8P.mvHtIg7EnRjtFdXruAkIrCpbkMyezdm', 'Raghib', 'Noor', '01675648371', '9577603609', 'Dhanmondi', 'Random Address 2', 'English Medium', '9');
+
 -- --------------------------------------------------------
 
 --
@@ -118,6 +135,15 @@ CREATE TABLE `teacher` (
   `institution` varchar(10) NOT NULL,
   `address` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `teacher`
+--
+
+INSERT INTO `teacher` (`username`, `password`, `firstname`, `lastname`, `phone`, `nid`, `institution`, `address`) VALUES
+('asif_dewan', '$2y$10$aox4R8Wvk99qI0RZK.0joOeXSuyPW.gFcGhjBgY2V4.aoVayrhnZW', 'Asif', 'Dewan', '01957375831', '9577603609', 'BRAC', 'Random Address'),
+('awsaf_t', '$2y$10$hatRagInW9k0TH0CB/mAmO5dGbBqkr2VayUOr/BTKfip5jLFSGD6C', 'Awsaf', 'Mahmood', '01625604871', '', 'DU', '89/4, North Badda, West Wind Point, Flat 11/C'),
+('awsaf_t2', '$2y$10$5YWc1ef7Z2hbJTa38pcmpuLTSq6bkkxI8aPQKbMd.yxhDQkJA3Tc6', 'Awsaf', 'Mahmood', '01625604871', '', 'BRAC', '? - 89/4, North Badda, West Wind Point, Flat 11/C');
 
 -- --------------------------------------------------------
 
@@ -143,9 +169,9 @@ CREATE TABLE `tuitionoffers` (
 --
 
 INSERT INTO `tuitionoffers` (`id`, `username`, `firstname`, `lastname`, `subjects`, `days`, `prefferedinstitution`, `fee`, `address`, `class`) VALUES
-(14, 'awsaf321', 'AWSAF', 'MAHMOOD', 'Maths, Physics', 4, 'NSU', 8000, '89/4, North Badda, West Wind Point, Flat 11/C', '9'),
-(15, 'awsaf321', 'AWSAF', 'MAHMOOD', 'English', 6, 'NSU', 8000, '89/4, North Badda, West Wind Point, Flat 11/C', '9'),
-(16, 'awsaf321', 'AWSAF', 'MAHMOOD', 'Bangla', 3, 'NSU', 4000, '89/4, North Badda, West Wind Point, Flat 11/C', '9');
+(23, 'awsaf_s', 'Awsaf', 'Mahmood', 'Maths, Physics', 4, 'NSU', 5000, '? - 89/4, North Badda, West Wind Point, Flat 11/C', '5'),
+(24, 'awsaf_s', 'Awsaf', 'Mahmood', 'English, Bangla', 5, 'BUET', 9000, '? - 89/4, North Badda, West Wind Point, Flat 11/C', '5'),
+(26, 'raghib_noor', 'Raghib', 'Noor', 'Science', 4, 'DMC', 8000, 'Random Address 2', '9');
 
 --
 -- Indexes for dumped tables
@@ -201,13 +227,13 @@ ALTER TABLE `tuitionoffers`
 -- AUTO_INCREMENT for table `currenttuitions`
 --
 ALTER TABLE `currenttuitions`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- AUTO_INCREMENT for table `messages`
 --
 ALTER TABLE `messages`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=88;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=108;
 
 --
 -- AUTO_INCREMENT for table `reviews`
@@ -219,7 +245,7 @@ ALTER TABLE `reviews`
 -- AUTO_INCREMENT for table `tuitionoffers`
 --
 ALTER TABLE `tuitionoffers`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

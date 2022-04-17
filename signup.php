@@ -57,7 +57,7 @@
 </head>
 
 <body>
-	<div class="registrationbox">
+	<div class="registrationbox mt-5">
 		<h1>Student Register</h1>
 		<form action="signup.php" method="post" enctype="multipart/form-data">
 			<p>Username</p>

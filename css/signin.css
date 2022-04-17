@@ -120,6 +120,7 @@ h1{
 	/*transform: translate(-50%,-50%);*/
 	box-sizing: border-box;
 	padding: 30px 30px;
+	border-radius: 30px;
 }
 
 .registrationbox p{

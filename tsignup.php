@@ -53,7 +53,7 @@
 </head>
 
 <body>
-	<div class="registrationbox">
+	<div class="registrationbox mt-5">
 		<h1>Teacher Register</h1>
 		<form action="tsignup.php" method="post" enctype="multipart/form-data">
 			<p>Username</p>
